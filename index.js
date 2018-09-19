@@ -83,19 +83,32 @@ instance.prototype.destroy = function() {
 instance.prototype.actions = function(system) {
 	var self = this;
 	self.system.emit('instance_actions', self.id, {
-		'inputOne':   { label: 'Input 1' },
-		'inputTwo':   { label: 'Input 2' },
-		'inputThree': { label: 'Input 3' },
-		'inputFour':  { label: 'Input 4' },
-		'vgaOne':     { label: 'VGA 1' },
-		'vgaTwo':     { label: 'VGA 2' },
-		'hdmiOne':    { label: 'HDMI 1' },
-		'hdmiTwo':    { label: 'HDMI 2' },
-		'blankOn':    { label: 'Blank Screen On' },
-		'blankOff':   { label: 'Blank Screen Off' },
-		'freezeOn':   { label: 'Freeze Screen On' },
-		'freezeOff':  { label: 'Freeze Screen Off' },
-	});
+		'commands':    {
+			label: 'Choose Command',
+			options: [
+					{
+						type:   'dropdown',
+						label:  'Choose Option',
+						id:     'commandSet',
+						width:  12,
+						choices:	[
+							'inputOne':   { label: 'Input 1' },
+							'inputTwo':   { label: 'Input 2' },
+							'inputThree': { label: 'Input 3' },
+							'inputFour':  { label: 'Input 4' },
+							'vgaOne':     { label: 'VGA 1' },
+							'vgaTwo':     { label: 'VGA 2' },
+							'hdmiOne':    { label: 'HDMI 1' },
+							'hdmiTwo':    { label: 'HDMI 2' },
+							'blankOn':    { label: 'Blank Screen On' },
+							'blankOff':   { label: 'Blank Screen Off' },
+							'freezeOn':   { label: 'Freeze Screen On' },
+							'freezeOff':  { label: 'Freeze Screen Off' }
+						]
+					}
+			]
+		});
+	}
 }
 
 instance.prototype.action = function(action) {
